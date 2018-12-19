@@ -21,15 +21,23 @@ public class CalculatorApplication implements CommandLineRunner {
         "  / ___ \\    | |_| | \\__ \\ |  __/ | | |  __/ \\__ \\ \\__ \\   | |___  | (_| | | | | (__  | |_| | | | | (_| | | |_  | (_) | | |    |_|      \n" +
         " /_/   \\_\\    \\___/  |___/  \\___| |_|  \\___| |___/ |___/    \\____|  \\__,_| |_|  \\___|  \\__,_| |_|  \\__,_|  \\__|  \\___/  |_|    (_)      \n" +
         "                                                                                                                                        \n");
-    Scanner scanner = new Scanner(System.in);
     int num1, num2;
     System.out.println("Dieses Programm addiert 2 Zahlen");
     System.out.println("Zahl 1: ");
-    num1 = scanner.nextInt();
+    num1 = inputInt();
     System.out.println("Zahl 2: ");
-    num2 = scanner.nextInt();
+    num2 = inputInt();
 
     System.out.printf("%d + %d = %d", num1, num2, num1 + num2);
+  }
+
+  public int inputInt() {
+    Scanner scanner = new Scanner(System.in);
+    while(!scanner.hasNextInt()) {
+      System.out.println("Bitte geben Sie einen Integer Wert ein!");
+      scanner.next();
+    }
+    return scanner.nextInt();
   }
 }
 
